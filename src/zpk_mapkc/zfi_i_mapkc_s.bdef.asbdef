@@ -1,0 +1,70 @@
+managed with additional save implementation in class ZBP_I_MAPKC_S unique;
+strict;
+with draft;
+
+define behavior for ZFI_I_MAPKC_S alias KetChuyenMappingSin
+draft table ZFI_TB_MAPKC_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _KetChuyenMapping { create ( features : instance ); with draft; }
+}
+
+define behavior for ZFI_I_MAPKC alias KetChuyenMapping
+persistent table ZFI_TB_MAPKC
+draft table ZFI_TB_MAPKC_D
+lock dependent by _KetChuyenMappingSin
+authorization dependent by _KetChuyenMappingSin
+
+{
+  field ( mandatory : create )
+   Companycode,
+   Rulty,
+   Sacct;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Companycode,
+   Rulty,
+   Sacct;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZFI_TB_MAPKC
+  {
+    Companycode = COMPANYCODE;
+    Rulty = RULTY;
+    Sacct = SACCT;
+    Dacct = DACCT;
+    Dcost = DCOST;
+    Oacct = OACCT;
+    Ocost = OCOST;
+    UpdBy = UPD_BY;
+    UpdAt = UPD_AT;
+  }
+
+  association _KetChuyenMappingSin { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

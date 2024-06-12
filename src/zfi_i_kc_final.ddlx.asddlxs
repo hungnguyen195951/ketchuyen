@@ -1,0 +1,70 @@
+@Metadata.layer: #CORE
+annotate view ZFI_I_KC_FINAL with
+  parameters
+    @EndUserText.label: 'Company code'
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CompanyCode', element: 'CompanyCode' } }]
+    P_CompanyCode,
+    @EndUserText.label: 'Fiscal Year'
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_FiscalYearForCompanyCode', element: 'FiscalYear' } }]
+    P_FiscalYear,
+    @EndUserText.label: 'Period'
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_FiscalYearPeriod', element: 'FiscalPeriod' } }]
+    P_FiscalPeriod,
+    @EndUserText.label: 'Rule type'
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'zfi_i_rulekc', element: 'zrule' } }]
+    P_RuleType
+{
+
+  @UI: {
+        facet: [ {  id: 'information',
+                    type: #COLLECTION,
+                    label: 'Information',
+                    position: 10 },
+                 {  parentId: 'information',
+                    id: 'headerInfomation',
+                    type: #IDENTIFICATION_REFERENCE,
+                    purpose: #STANDARD,
+                    position: 10 } ] }
+  @UI.hidden: true
+  FiscalPeriod;
+  @UI.hidden: true
+  FiscalYear;
+  @UI.hidden: true
+  CompanyCode;
+  @UI: { lineItem: [{ position: 10 }] }
+  @UI.identification: [{ position: 10 }]
+  GLAccount;
+  @UI: { lineItem: [{ position: 20 }] }
+  @UI.identification: [{ position: 20 }]
+  RuleType;
+  @UI: { lineItem: [{ position: 30 }] }
+  @UI.identification: [{ position: 30 }]
+  TargetAccount;
+  @UI: { lineItem: [{ position: 40 }] }
+  @UI.identification: [{ position: 40 }]
+  TargetCostCenter;
+  @UI: { lineItem: [{ position: 50 }] }
+  @UI.identification: [{ position: 50 }]
+  OffsettingAccount;
+  @UI: { lineItem: [{ position: 60 }] }
+  @UI.identification: [{ position: 60 }]
+  OffsettingCostCenter;
+  @UI: { lineItem: [{ position: 70 }] }
+  @EndUserText: { label: 'Account' }
+  @UI.identification: [{ position: 70 }]
+  CompanyCodeCurrency;
+  @UI: { lineItem: [{ position: 80 }] }
+  @EndUserText: { label: 'Total transaction in local currency' }
+  @UI.identification: [{ position: 80 }]
+  TotalAmtInCoCodeCrcy;
+  @UI: { lineItem: [{ position: 90 }] }
+  @EndUserText: { label: 'Chứng từ kết chuyển' }
+  @UI.identification: [{ position: 90 }]
+  ChungTuKetChuyen;
+  @UI: { lineItem: [{ position: 91, criticalityRepresentation: #WITH_ICON , criticality: 'StatusCritical' }] }
+  @EndUserText.label: 'Status'
+  Status;
+  @UI.hidden: true
+  StatusCritical;
+
+}

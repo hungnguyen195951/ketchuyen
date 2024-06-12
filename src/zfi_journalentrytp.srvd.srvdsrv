@@ -1,0 +1,4 @@
+@EndUserText.label: 'Export I_JOURNALENTRYTP'
+define service ZFI_JOURNALENTRYTP {
+  expose ZI_JOURNALENTRYTP as JournalEntry;
+}

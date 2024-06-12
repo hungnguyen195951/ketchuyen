@@ -1,0 +1,34 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Mapping tài khoản kết chuyển cuối kỳ",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZFI_UI_MAPKC_O4",
+    "serviceName": "ZFI_UI_MAPKC_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "KetChuyenMappingSin",
+    "name": "ZMAPKC",
+    "configurationGroup": "",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "KetChuyenMappingSin",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "KetChuyenMapping",
+        "tableType": "gridTable",
+        "creationModeName": "creationRow",
+        "rowCountMode": "auto"
+      }
+    ]
+  }
+}

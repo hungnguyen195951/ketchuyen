@@ -1,0 +1,25 @@
+projection;
+strict;
+use draft;
+
+define behavior for ZFI_C_MAPKC_S alias KetChuyenMappingSin
+
+{
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action SelectCustomizingTransptReq;
+
+  use association _KetChuyenMapping { create; with draft; }
+}
+
+define behavior for ZFI_C_MAPKC alias KetChuyenMapping
+
+{
+  use update;
+  use delete;
+
+  use association _KetChuyenMappingSin { with draft; }
+}

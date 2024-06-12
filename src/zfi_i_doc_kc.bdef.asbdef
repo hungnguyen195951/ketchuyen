@@ -1,0 +1,13 @@
+managed implementation in class zbp_fi_i_doc_kc unique;
+strict ( 2 );
+
+define behavior for zfi_i_doc_kc //alias <alias_name>
+persistent table zfi_tb_kc
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Chứng từ kết chuyển'
+define service ZFI_DOC_KC {
+  expose zfi_i_doc_kc;
+}

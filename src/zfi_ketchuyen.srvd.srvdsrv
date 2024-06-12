@@ -1,0 +1,4 @@
+@EndUserText.label: 'Kết chuyển'
+define service ZFI_KETCHUYEN {
+  expose ZFI_I_KC_FINAL;
+}

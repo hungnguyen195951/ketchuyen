@@ -1,0 +1,4 @@
+define service ZFI_MAPKC {
+  expose ZFI_C_MAPKC_S as KetChuyenMappingSin;
+  expose ZFI_C_MAPKC as KetChuyenMapping;
+}

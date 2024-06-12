@@ -1,0 +1,4 @@
+@EndUserText.label: 'Chứng từ kết chuyển hiện tại'
+define service ZFI_DOCKC_CURRENT {
+  expose zfi_i_dockc_current;
+}

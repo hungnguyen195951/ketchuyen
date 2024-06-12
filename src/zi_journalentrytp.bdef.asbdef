@@ -1,0 +1,10 @@
+projection;
+strict ( 2 );
+
+define behavior for ZI_JOURNALENTRYTP //alias <alias_name>
+{
+    use action Post;
+    use action Reverse;
+    use function Validate;
+    use action Change;
+}
